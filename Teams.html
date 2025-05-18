@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bold Rebels - Teams</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a14;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(to right, #1e1e2e, #2d2d42);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ff3e3e;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .logo span {
+            color: #ffcc00;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        nav ul li a:hover {
+            color: #ff3e3e;
+            text-shadow: 0 0 10px rgba(255, 62, 62, 0.5);
+        }
+        
+        /* Teams Hero Section */
+        .teams-hero {
+            background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80') center/cover no-repeat;
+            height: 400px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .teams-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .teams-hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .teams-hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+        }
+        
+        .teams-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #e0e0e0;
+        }
+        
+        /* Teams Section */
+        .teams-section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h3 {
+            font-size: 2.5rem;
+            color: #ff3e3e;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #ffcc00;
+        }
+        
+        .team-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .team-card {
+            background: linear-gradient(135deg, #252535, #1e1e2e);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 62, 62, 0.2);
+        }
+        
+        .team-card-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-card:hover .team-card-img img {
+            transform: scale(1.1);
+        }
+        
+        .team-card-content {
+            padding: 1.5rem;
+        }
+        
+        .team-card-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #ffcc00;
+        }
+        
+        .team-card-game {
+            display: inline-block;
+            background-color: #ff3e3e;
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .team-card-desc {
+            margin-bottom: 1.5rem;
+            color: #cccccc;
+        }
+        
+        .team-achievements {
+            margin-top: 1rem;
+        }
+        
+        .achievement {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .achievement-icon {
+            margin-right: 0.5rem;
+            color: #ffcc00;
+            font-size: 1.2rem;
+        }
+        
+        .team-links {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .team-btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background-color: #ff3e3e;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .team-btn:hover {
+            background-color: #e62e2e;
+            transform: translateY(-2px);
+        }
+        
+        .team-roster-btn {
+            background-color: transparent;
+            border: 2px solid #ffcc00;
+            color: #ffcc00;
+        }
+        
+        .team-roster-btn:hover {
+            background-color: #ffcc00;
+            color: #0a0a14;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #121220;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ff3e3e;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .footer-logo span {
+            color: #ffcc00;
+        }
+        
+        .footer-links h4, .footer-social h4, .footer-newsletter h4 {
+            color: #ffffff;
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h4::after, .footer-social h4::after, .footer-newsletter h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #ff3e3e;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .footer-links ul li a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #252535;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 1.2rem;
+            color: #ffffff;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: #ff3e3e;
+            transform: translateY(-5px);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: 1rem;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            background-color: #252535;
+            color: #ffffff;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .newsletter-btn {
+            padding: 0 1rem;
+            background-color: #ff3e3e;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: #e62e2e;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #252535;
+            color: #a0a0a0;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 1rem;
+            }
+            
+            .teams-hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .team-cards {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .teams-hero h2 {
+                font-size: 2rem;
+            }
+            
+            .teams-hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h3 {
+                font-size: 2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input, .newsletter-btn {
+                width: 100%;
+                border-radius: 5px;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <h1>Bold <span>Rebels</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="tournaments.html">Tournaments</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Teams Hero Section -->
+    <section class="teams-hero">
+        <div class="teams-hero-content">
+            <h2>Our Elite Teams</h2>
+            <p>Meet the champions who represent Bold Rebels in the global esports arena. Our roster includes world-class talent across multiple competitive games.</p>
+        </div>
+    </section>
+
+    <!-- Teams Section -->
+    <section class="teams-section">
+        <div class="container">
+            <div class="section-title">
+                <h3>Professional Teams</h3>
+            </div>
+            <div class="team-cards">
+                <!-- Team 1 -->
+                <div class="team-card">
+                    <div class="team-card-img">
+                        <img src="https://images.unsplash.com/photo-1616587894289-86480e533129?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Valorant Team">
+                    </div>
+                    <div class="team-card-content">
+                        <h3 class="team-card-title">Phantom Force</h3>
+                        <span class="team-card-game">Valorant</span>
+                        <p class="team-card-desc">Our elite Valorant squad known for precise tactics and lightning-fast reflexes. Champions of the National Valorant Series 2023.</p>
+                        <div class="team-achievements">
+                            <div class="achievement">
+                                <span class="achievement-icon">🏆</span>
+                                <span>VCT Regional Champions 2023</span>
+                            </div>
+                            <div class="achievement">
+                                <span class="achievement-icon">🥈</span>
+                                <span>Masters Tournament Finalists</span>
+                            </div>
+                        </div>
+                        <div class="team-links">
+                            <a href="#" class="team-btn">Team Page</a>
+                            <a href="#" class="team-btn team-roster-btn">Roster</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team 2 -->
+                <div class="team-card">
+                    <div class="team-card-img">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="CS:GO Team">
+                    </div>
+                    <div class="team-card-content">
+                        <h3 class="team-card-title">Strike Unit</h3>
+                        <span class="team-card-game">CS:GO</span>
+                        <p class="team-card-desc">Our veteran CS:GO team with over 5 years of competitive experience. Known for strategic play and clutch performances.</p>
+                        <div class="team-achievements">
+                            <div class="achievement">
+                                <span class="achievement-icon">🏆</span>
+                                <span>ESL Pro League Season 17</span>
+                            </div>
+                            <div class="achievement">
+                                <span class="achievement-icon">🏆</span>
+                                <span>BLAST Premier Fall Finals</span>
+                            </div>
+                        </div>
+                        <div class="team-links">
+                            <a href="#" class="team-btn">Team Page</a>
+                            <a href="#" class="team-btn team-roster-btn">Roster</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team 3 -->
+                <div class="team-card">
+                    <div class="team-card-img">
+                        <img src="https://images.unsplash.com/photo-1627045718232-94865b10ec63?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="League of Legends Team">
+                    </div>
+                    <div class="team-card-content">
+                        <h3 class="team-card-title">Nexus Titans</h3>
+                        <span class="team-card-game">League of Legends</span>
+                        <p class="team-card-desc">Our LoL powerhouse featuring international talent. Masters of macro play and team coordination.</p>
+                        <div class="team-achievements">
+                            <div class="achievement">
+                                <span class="achievement-icon">🏆</span>
+                                <span>LCS Spring Split Champions</span>
+                            </div>
+                            <div class="achievement">
+                                <span class="achievement-icon">🥉</span>
+                                <span>Worlds 2023 Semi-finalists</span>
+                            </div>
+                        </div>
+                        <div class="team-links">
+                            <a href="#" class="team-btn">Team Page</a>
+                            <a href="#" class="team-btn team-roster-btn">Roster</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team 4 -->
+                <div class="team-card">
+                    <div class="team-card-img">
+                        <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dota 2 Team">
+                    </div>
+                    <div class="team-card-content">
+                        <h3 class="team-card-title">Ancient Guardians</h3>
+                        <span class="team-card-game">Dota 2</span>
+                        <p class="team-card-desc">Our innovative Dota 2 squad known for breaking the meta and creating exciting new strategies.</p>
+                        <div class="team-achievements">
+                            <div class="achievement">
+                                <span class="achievement-icon">🏆</span>
+                                <span>The International 2023 Top 8</span>
+                            </div>
+                            <div class="achievement">
+                                <span class="achievement-icon">🏆</span>
+                                <span>ESL One Champions</span>
+                            </div>
+                        </div>
+                        <div class="team-links">
+                            <a href="#" class="team-btn">Team Page</a>
+                            <a href="#" class="team-btn team-roster-btn">Roster</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team 5 -->
+                <div class="team-card">
+                    <div class="team-card-img">
+                        <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apex Legends Team">
+                    </div>
+                    <div class="team-card-content">
+                        <h3 class="team-card-title">Apex Predators</h3>
+                        <span class="team-card-game">Apex Legends</span>
+                        <p class="team-card-desc">Our battle royale specialists with exceptional map awareness and mechanical skill. Always a top contender in any tournament.</p>
+                        <div class="team-achievements">
+                            <div class="achievement">
+                                <span class="achievement-icon">🏆</span>
+                                <span>ALGS Championship 2023</span>
+                            </div>
+                            <div class="achievement">
+                                <span class="achievement-icon">🥈</span>
+                                <span>Twitch Rivals Runner-up</span>
+                            </div>
+                        </div>
+                        <div class="team-links">
+                            <a href="#" class="team-btn">Team Page</a>
+                            <a href="#" class="team-btn team-roster-btn">Roster</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team 6 -->
+                <div class="team-card">
+                    <div class="team-card-img">
+                        <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fortnite Team">
+                    </div>
+                    <div class="team-card-content">
+                        <h3 class="team-card-title">Build Masters</h3>
+                        <span class="team-card-game">Fortnite</span>
+                        <p class="team-card-desc">Our Fortnite pros are known for their quick building, editing skills, and clutch plays in high-pressure situations.</p>
+                        <div class="team-achievements">
+                            <div class="achievement">
+                                <span class="achievement-icon">🏆</span>
+                                <span>FNCS Chapter 4 Champions</span>
+                            </div>
+                            <div class="achievement">
+                                <span class="achievement-icon">🏆</span>
+                                <span>Fortnite World Cup Qualifier</span>
+                            </div>
+                        </div>
+                        <div class="team-links">
+                            <a href="#" class="team-btn">Team Page</a>
+                            <a href="#" class="team-btn team-roster-btn">Roster</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3 class="footer-logo">Bold <span>Rebels</span></h3>
+                    <p>An elite esports organization founded with a rebellious spirit and an ambitious goal: to build championship teams across multiple gaming titles.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="tournaments.html">Tournaments</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">t</a>
+                        <a href="#" class="social-icon">i</a>
+                        <a href="#" class="social-icon">d</a>
+                        <a href="#" class="social-icon">y</a>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get the latest news and updates about Bold Rebels.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your Email">
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Bold Rebels. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

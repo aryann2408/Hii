@@ -1,0 +1,178 @@
+<html>
+<head>
+  <title>Bold Rebels - eSports Gaming</title>
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', Arial, sans-serif;
+      background: #181a20;
+      color: #fff;
+    }
+    header {
+      background: #1f2230;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px #0004;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 10px;
+    }
+    nav a {
+      color: #ff1744;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .hero {
+      padding: 80px 20px 40px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #ff365e 0%, #181a20 100%);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      color: #fff9;
+      margin-bottom: 30px;
+    }
+    .cta-btn {
+      background: #ff1744;
+      color: #fff;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover {
+      background: #ff1744;
+    }
+    .section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #ff365e;
+      text-align: center;
+    }
+    .about {
+      text-align: center;
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+    .games {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .game-card {
+      background: #23263a;
+      border-radius: 16px;
+      padding: 30px 20px;
+      width: 220px;
+      box-shadow: 0 4px 16px #0002;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .game-card:hover {
+      transform: translateY(-8px) scale(1.03);
+    }
+    .game-card img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+    .game-card h3 {
+      margin: 10px 0 5px 0;
+      color: #ff365e;
+    }
+    .game-card p {
+      color: #bbb;
+      font-size: 0.95rem;
+    }
+    footer {
+      background: #1f2230;
+      color: #888;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 700px) {
+      .games {
+        flex-direction: column;
+        align-items: center;
+      }
+      .game-card {
+        width: 90%;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="font-size:2rem; color:#ff365e; font-weight:bold; letter-spacing:2px;">Bold Rebels</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Teams</a>
+      <a href="#">Tournaments</a>
+      <a href="#">News</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <h1>Welcome to Bold Rebels</h1>
+    <p>The home of fearless eSports champions. Compete, connect, and conquer with the Bold Rebels community!</p>
+    <button class="cta-btn">Join Now</button>
+  </section>
+  <section class="section">
+    <div class="section-title">About Bold Rebels</div>
+    <div class="about">
+      Bold Rebels is a premier eSports organization dedicated to empowering gamers worldwide. We host top-tier tournaments, support competitive teams, and foster a vibrant gaming community. Whether you’re a pro or just starting out, Bold Rebels is your arena.
+    </div>
+    <div class="section-title">Featured Games</div>
+    <div class="games">
+      <div class="game-card">
+        <img src="https://img.icons8.com/color/96/000000/league-of-legends.png" alt="League of Legends">
+        <h3>League of Legends</h3>
+        <p>Join our legendary LoL squad and battle for glory in the Summoner’s Rift.</p>
+      </div>
+      <div class="game-card">
+        <img src="https://img.icons8.com/color/96/000000/counter-strike.png" alt="CS:GO">
+        <h3>CS:GO</h3>
+        <p>Experience tactical FPS action with our elite Counter-Strike: Global Offensive team.</p>
+      </div>
+      <div class="game-card">
+        <img src="https://img.icons8.com/color/96/000000/fortnite.png" alt="Fortnite">
+        <h3>Fortnite</h3>
+        <p>Build, battle, and outlast the competition in our Fortnite tournaments.</p>
+      </div>
+    </div>
+  </section>
+  <footer>
+    &copy; 2024 Bold Rebels. All rights reserved. | Follow us on 
+    <a href="#" style="color:#ff365e;text-decoration:none;">Twitter</a> &amp; 
+    <a href="#" style="color:#ff365e;text-decoration:none;">Discord</a>
+  </footer>
+</body>
+</html>
